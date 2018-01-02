@@ -20,5 +20,12 @@ install( TARGETS ${PROJECT_NAME} swig_cpp_lib
          ARCHIVE DESTINATION lib/static
          PUBLIC_HEADER DESTINATION include )
 
+# find OpenCV
+find_package( OpenCV REQUIRED )
+link_libraries( ${OpenCV_LIBS} )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+list( APPEND INCLUDE_DIRECTORIES ${OpenCV_INCLUDE_DIRS} )
+list( APPEND LINK_LIBRARIES ${OpenCV_LIBS} )
+
 # Add swig subdirectory
 add_subdirectory( swig )
