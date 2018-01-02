@@ -99,3 +99,16 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# swig
+.idea/*
+*.cxx
+*.a
+*.cmake
+*.bin
+CMakeFiles/*
+swig/python/CMakeFiles/*
+CMakeCache.txt
+*.xml
+Makefile
+*.marks

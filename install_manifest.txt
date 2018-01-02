@@ -1,0 +1,2 @@
+/usr/local/lib/static/libswig_basic.a
+/usr/local/lib/static/libswig_cpp_lib.a
