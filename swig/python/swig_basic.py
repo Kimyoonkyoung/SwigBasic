@@ -116,6 +116,9 @@ class examplepy(_object):
 
     def link_liba_hello(self):
         return _swig_basic.examplepy_link_liba_hello(self)
+
+    def setJson(self, json_string):
+        return _swig_basic.examplepy_setJson(self, json_string)
 examplepy_swigregister = _swig_basic.examplepy_swigregister
 examplepy_swigregister(examplepy)
 

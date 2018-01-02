@@ -36,5 +36,16 @@ link_libraries( ${JSONCPP_LIBRARIES} )
 list( APPEND INCLUDE_DIRECTORIES ${JSONCPP_INCLUDE_DIRS} )
 list( APPEND LINK_LIBRARIES ${JSONCPP_LIBRARIES} )
 
+# find PythonLibs
+find_package( PythonInterp REQUIRED )
+execute_process( COMMAND python-config --prefix OUTPUT_VARIABLE PYTHON_PREFIX OUTPUT_STRIP_TRAILING_WHITESPACE )
+if( APPLE )
+    set( PYTHON_LIBRARY     ${PYTHON_PREFIX}/lib/libpython2.7.dylib )
+    set( PYTHON_INCLUDE_DIR ${PYTHON_PREFIX}/include/python2.7 )
+endif( )
+find_package( PythonLibs REQUIRED )
+message( STATUS "PythonLibs: ${PYTHONLIBS_VERSION_STRING}" )
+include_directories( SYSTEM ${PYTHON_INCLUDE_PATH} )
+
 # Add swig subdirectory
 add_subdirectory( swig )

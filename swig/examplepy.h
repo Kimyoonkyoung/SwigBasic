@@ -9,6 +9,8 @@
 #define __PROJECT_EXAMPLEPY_H__
 #pragma once
 
+#include <Python.h>
+
 class examplepy {
 
 public:
@@ -17,6 +19,9 @@ public:
 
     void swig_example_hello();
     void link_liba_hello();
+
+    // send json (python to C++)
+    void setJson(PyObject* json_string);
 };
 
 

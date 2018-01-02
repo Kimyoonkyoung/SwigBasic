@@ -31,3 +31,11 @@ void examplepy::link_liba_hello()
     example _example;
     _example.lib_cpp_hello();
 }
+
+void examplepy::setJson(PyObject* json_string)
+{
+    const char* s = PyString_AsString(json_string);
+    std::cout << s << std::endl;
+
+    //_basic.setJson(s);
+}
