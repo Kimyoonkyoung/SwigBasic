@@ -5,11 +5,26 @@
 //  Copyright (c) 2018 Kakao. All rights reserved.
 //
 #include <iostream>
-#include "../swig/examplepy.h"
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 #include "example.h"
+
+example::example()
+{
+
+}
+
+example::~example()
+{
+
+}
 
 void example::lib_cpp_hello()
 {
     std::cout << "Hello from lib_cpp" << std::endl;
+
+    cv::Mat test = cv::imread("/Users/kakao/Desktop/test.png");
+    cv::imshow("win1", test);
+    cv::waitKey(0);
 }

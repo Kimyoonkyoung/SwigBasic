@@ -5,9 +5,21 @@
 //  Copyright (c) 2018 Kakao. All rights reserved.
 //
 #include "examplepy.h"
+#include "../src/example.h"
 
 #include <iostream>
 #include <fstream>
+
+
+examplepy::examplepy()
+{
+
+}
+
+examplepy::~examplepy()
+{
+
+}
 
 void examplepy::swig_example_hello()
 {
@@ -16,5 +28,6 @@ void examplepy::swig_example_hello()
 
 void examplepy::link_liba_hello()
 {
-    link_liba_hello();
+    example _example;
+    _example.lib_cpp_hello();
 }

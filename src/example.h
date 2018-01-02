@@ -11,6 +11,10 @@
 
 
 class example {
+public:
+    example();
+    virtual ~example();
+
     void lib_cpp_hello();
 };
 

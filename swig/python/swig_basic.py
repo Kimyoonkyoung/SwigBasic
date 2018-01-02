@@ -110,6 +110,12 @@ class examplepy(_object):
             self.this = this
     __swig_destroy__ = _swig_basic.delete_examplepy
     __del__ = lambda self: None
+
+    def swig_example_hello(self):
+        return _swig_basic.examplepy_swig_example_hello(self)
+
+    def link_liba_hello(self):
+        return _swig_basic.examplepy_link_liba_hello(self)
 examplepy_swigregister = _swig_basic.examplepy_swigregister
 examplepy_swigregister(examplepy)
 
