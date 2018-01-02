@@ -47,6 +47,11 @@ void examplepy::sendJsonToCpp(PyObject* json_string)
     _example.setJson(s);
 }
 
+void examplepy::callCpp()
+{
+    example _example;
+    _example.sendJsonToPython();
+}
 
 void examplepy::sendImageToCpp(PyObject* binary_object)
 {
@@ -63,4 +68,9 @@ void examplepy::sendImageToCpp(PyObject* binary_object)
 
     example _example;
     _example.setImage(decoded_data);
+}
+
+PyObject* examplepy::getJsonFromCpp(std::string json_string)
+{
+    return PyString_FromString(json_string.c_str());;
 }

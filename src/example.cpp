@@ -10,6 +10,7 @@
 #include <fstream>
 
 #include "example.h"
+#include "../swig/examplepy.h"
 
 example::example()
 {
@@ -35,4 +36,24 @@ void example::setImage(cv::Mat image)
     cv::waitKey(0);
 
     printf("\nsend Image -> c++ compelte !! \n");
+}
+
+std::string example::sendJsonToPython()
+{
+    Json::Value event;
+    Json::Value vec(Json::arrayValue);
+    vec.append(Json::Value(1));
+    vec.append(Json::Value(2));
+    vec.append(Json::Value(3));
+
+    event["competitors"]["home"]["name"] = "Liverpool";
+    event["competitors"]["away"]["code"] = 89223;
+    event["competitors"]["away"]["name"] = "Aston Villa";
+    event["competitors"]["away"]["code"]=vec;
+
+    Json::StyledWriter styledWriter;
+    std::string strJSON = styledWriter.write(event);
+
+    examplepy _examplepy;
+    _examplepy.getJsonFromCpp(strJSON);
 }

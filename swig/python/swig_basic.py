@@ -120,6 +120,12 @@ class examplepy(_object):
     def sendJsonToCpp(self, json_string):
         return _swig_basic.examplepy_sendJsonToCpp(self, json_string)
 
+    def callCpp(self):
+        return _swig_basic.examplepy_callCpp(self)
+
+    def getJsonFromCpp(self, json_string):
+        return _swig_basic.examplepy_getJsonFromCpp(self, json_string)
+
     def sendImageToCpp(self, binary_object):
         return _swig_basic.examplepy_sendImageToCpp(self, binary_object)
 examplepy_swigregister = _swig_basic.examplepy_swigregister

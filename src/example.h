@@ -20,6 +20,8 @@ public:
     void setJson(const char* jsonString);
 
     void setImage(cv::Mat image);
+
+    std::string sendJsonToPython();
 };
 
 

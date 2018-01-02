@@ -10,6 +10,8 @@
 #pragma once
 
 #include <Python.h>
+#include <iosfwd>
+#include <string>
 
 class examplepy {
 
@@ -22,6 +24,10 @@ public:
 
     // send json (python to C++)
     void sendJsonToCpp(PyObject* json_string);
+
+    // get json (C++ to python)
+    void callCpp();
+    PyObject* getJsonFromCpp(std::string json_string);
 
     // send image (python to C++)
     void sendImageToCpp(PyObject* binary_object);

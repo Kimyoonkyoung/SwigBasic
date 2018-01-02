@@ -2,11 +2,11 @@ import swig_basic
 import json
 
 swig_obj = swig_basic.examplepy()
+
+# basic
 swig_obj.swig_example_hello()
 
-
-# image to array (python to c++)
-###img = cv2.imread("/Users/kakao/Desktop/test.png")
+# array to image (python to c++)
 img = open("/Users/kakao/Desktop/test.png", 'rb').read()
 swig_obj.sendImageToCpp(img)
 
@@ -18,5 +18,7 @@ swig_obj.sendJsonToCpp(jsonfile)
 
 
 # string to json (c++ to python)
+swig_obj.callCpp()
+
 
 
