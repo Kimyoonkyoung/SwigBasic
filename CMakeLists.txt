@@ -27,5 +27,14 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 list( APPEND INCLUDE_DIRECTORIES ${OpenCV_INCLUDE_DIRS} )
 list( APPEND LINK_LIBRARIES ${OpenCV_LIBS} )
 
+# find jsoncpp
+set( JSONCPP_DIR            /usr/local/Cellar/jsoncpp-1.8.0/ )
+set( JSONCPP_INCLUDE_DIRS   ${JSONCPP_DIR}/include )
+set( JSONCPP_LIBRARIES      ${JSONCPP_DIR}/lib/libjsoncpp.a )
+include_directories( ${JSONCPP_INCLUDE_DIRS} )
+link_libraries( ${JSONCPP_LIBRARIES} )
+list( APPEND INCLUDE_DIRECTORIES ${JSONCPP_INCLUDE_DIRS} )
+list( APPEND LINK_LIBRARIES ${JSONCPP_LIBRARIES} )
+
 # Add swig subdirectory
 add_subdirectory( swig )
