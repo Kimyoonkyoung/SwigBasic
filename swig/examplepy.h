@@ -21,7 +21,11 @@ public:
     void link_liba_hello();
 
     // send json (python to C++)
-    void setJson(PyObject* json_string);
+    void sendJsonToCpp(PyObject* json_string);
+
+    // send image (python to C++)
+    void sendImageToCpp(PyObject* binary_object);
+
 };
 
 

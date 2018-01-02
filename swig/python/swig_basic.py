@@ -117,8 +117,11 @@ class examplepy(_object):
     def link_liba_hello(self):
         return _swig_basic.examplepy_link_liba_hello(self)
 
-    def setJson(self, json_string):
-        return _swig_basic.examplepy_setJson(self, json_string)
+    def sendJsonToCpp(self, json_string):
+        return _swig_basic.examplepy_sendJsonToCpp(self, json_string)
+
+    def sendImageToCpp(self, binary_object):
+        return _swig_basic.examplepy_sendImageToCpp(self, binary_object)
 examplepy_swigregister = _swig_basic.examplepy_swigregister
 examplepy_swigregister(examplepy)
 

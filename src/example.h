@@ -9,13 +9,17 @@
 #define __PROJECT_EXAMPLE_H__
 #pragma once
 
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 class example {
 public:
     example();
     virtual ~example();
 
-    void lib_cpp_hello();
+    void setJson(const char* jsonString);
+
+    void setImage(cv::Mat image);
 };
 
 

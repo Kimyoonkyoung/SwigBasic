@@ -7,6 +7,10 @@
 #include "examplepy.h"
 #include "../src/example.h"
 
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgproc/imgproc_c.h>
+
 #include <iostream>
 #include <fstream>
 
@@ -29,13 +33,34 @@ void examplepy::swig_example_hello()
 void examplepy::link_liba_hello()
 {
     example _example;
-    _example.lib_cpp_hello();
+    //_example.lib_cpp_hello();
 }
 
-void examplepy::setJson(PyObject* json_string)
-{
-    const char* s = PyString_AsString(json_string);
-    std::cout << s << std::endl;
 
-    //_basic.setJson(s);
+void examplepy::sendJsonToCpp(PyObject* json_string)
+{
+    // python json_string to c++ string
+    const char* s = PyString_AsString(json_string);
+    //std::cout << s << std::endl;
+
+    example _example;
+    _example.setJson(s);
+}
+
+
+void examplepy::sendImageToCpp(PyObject* binary_object)
+{
+    const char* binary_data = PyString_AsString(binary_object);
+    Py_ssize_t binary_size = PyString_Size(binary_object);
+    if ( !binary_data ) {
+        PyErr_Print();
+        printf("Cannot convert PyObject to String\n");
+    }
+
+    std::string binary_string(binary_data, binary_size);
+    std::vector<uint8_t> buffer(binary_string.begin(), binary_string.end() );
+    cv::Mat decoded_data = cv::imdecode(buffer, CV_LOAD_IMAGE_COLOR);
+
+    example _example;
+    _example.setImage(decoded_data);
 }
